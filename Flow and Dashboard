@@ -1,0 +1,9 @@
+District Selection/Location (Bonus Implementation):
+Bonus Feature: Upon first launch, the app asks permission for location. If granted, it automatically selects the district (e.g., Jaunpur).
+Manual Fallback: If location fails or is denied, present a screen with a large, scrollable list of districts in Hindi, sorted alphabetically, with an easy search/filter option.
+The Main Dashboard: Divided into three simple, stacked cards:
+
+Card Title (In Hindi) Metric Displayed Contextual Description (Voiceover/Tooltip)
+💰 Kitna Paisa Mila? (How much money was spent?) Total wages paid in the last month. "This shows the total money given for work in your district last month. Higher is better."
+🗓️ Kitne Din Kaam Hua? (How many days was work given?) Average Days of Employment Provided (vs. the 100-day guarantee). "On average, a job card family got X days of work. Target is 100 days/year. Red means less work is available."
+👨‍👩‍👧‍👦 Kitne Logon Ko Faayda Hua? (How many people benefitted?) Number of Households Provided Employment.
