@@ -1,0 +1,10 @@
+The application will be named "Meri Kaarya Pragati" (My Work Progress).
+
+
+Core Design Principles
+
+Principle Implementation Detail Why it Works for Low Literacy
+Language & Iconography Primary language is Hindi (Devanagari). Use universally recognized icons (e.g., a rupee sign for wages, a person/job card for beneficiaries, a calendar/clock for days worked). Reduces cognitive load; relies on visual cues over text.
+Color Coding Use Green for "Good/Exceeded Target" and Red for "Poor/Missed Target" consistently across all metrics. Provides immediate, non-textual understanding of performance status.
+Contextualization Instead of "Average Days Worked per Household," use a simple sentence: "Has your family worked enough?" Turns abstract data into a personal question, driving engagement.
+Navigation Single-screen Dashboard. Minimize clicks. Use large, tappable buttons (e.g., district selection).
