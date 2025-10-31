@@ -1,0 +1,17 @@
+Production Readiness
+The core challenge is the unreliable upstream API and the need to scale for millions of users.
+A. Data Layer and Synchronization (Addressing API Reliability)
+
+
+Component Technology/Tool Rationale
+Database PostgreSQL (or MySQL) with a focus on partitioning. Robust, ACID compliant, and reliable. Essential for structured reporting data.
+Data Ingestion Python Script (Cron Job) hosted on a separate compute (e.g., AWS Lambda/ECS). Decouples the frontend from the upstream API. Runs nightly to pull the latest data from data.gov.in API. Handles retries and error logging.
+Data Storage Strategy Caching Layer (Redis): Stores pre-calculated metrics (current and past 6 months) for all districts. Drastically reduces DB lookups for the most frequent queries, ensuring millisecond-level response times for millions of users.
+Uptime Resilience The app only queries the internal, reliable database/cache. If the data.gov.in API is down for days, the public app continues to serve the last successfully fetched data, with a clear timestamp: "Data updated as of: 2025-10-30."
+
+Application and Deployment Layer (Addressing Scale)
+Component Technology/Tool Rationale
+Frontend React/Next.js (Web App) - No dedicated mobile app needed initially. Fast development, excellent mobile web performance, and easy language localization (i18n for Hindi).
+Backend API Node.js (Express) or Python (FastAPI/Django). Lightweight, fast, and excellent at handling concurrent connections (required for millions of users). Serves data from Redis/PostgreSQL only.
+Hosting (VPS/VM) DigitalOcean/AWS/GCP VM (as requested). Provides dedicated resources for the database and application server, allowing for full control over scaling and security.
+Bonus: Location Detection Browser Geolocation API on the client-side, sending the Lat/Long to the backend. Backend uses a Reverse Geocoding Service (e.g., Google Maps API or a smaller, open-source service like OpenCage) to map coordinates to a district name.
